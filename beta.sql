@@ -41,3 +41,12 @@ CREATE TABLE logs (
     details VARCHAR(100) NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
+
+CREATE TABLE rosette_user (
+    rosette_user_id INT PRIMARY KEY AUTO_INCREMENT,
+    uuid CHAR(36) NOT NULL,
+    rosette_mac VARCHAR(17) NOT NULL,
+    FOREIGN KEY (uuid) REFERENCES user(uuid) ON DELETE CASCADE,
+    FOREIGN KEY (rosette_mac) REFERENCES rosette(rosette_mac) ON DELETE CASCADE,
+    UNIQUE (uuid, rosette_mac) -- Evitar duplicados de un mismo uuid con una misma mac
+);
