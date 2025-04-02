@@ -24,7 +24,7 @@ BEGIN
         p_owner_uuid
     );
 
---Insertar relacion de uuid y mac en rosette_user para asociar cada roseta a un usuario
+-- Insertar relacion de uuid y mac en rosette_user para asociar cada roseta a un usuario
     INSERT INTO rosette_user (uuid, rosette_mac)
     VALUES (p_owner_uuid, p_rosette_mac);
 
