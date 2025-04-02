@@ -9,7 +9,7 @@ USE lumitech_beta;
         user_nickname VARCHAR(15) UNIQUE NOT NULL,
         user_email VARCHAR(100) UNIQUE NOT NULL,
         user_password VARCHAR(30) NOT NULL,
-        uuid CHAR(36) UNIQUE NOT NULL
+        uuid CHAR(36) UNIQUE NOT NULL,
         verified TINYINT(1) NOT NULL DEFAULT 0,
         token_verification VARCHAR(255) NULL
     );
