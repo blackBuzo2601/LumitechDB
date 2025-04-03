@@ -1,4 +1,4 @@
-use lumintechDB;
+USE lumitech_beta;
 
 DELIMITER $$
 
@@ -20,11 +20,11 @@ BEGIN
     -- Determinar el resultado
     IF nickname_exists > 0 THEN
         SET p_result = 'Error: Nickname ya registrado';
-    ELSE IF email_exists > 0 THEN
+    ELSEIF email_exists > 0 THEN  -- ← Aquí corregí ELSE IF → ELSEIF
         SET p_result = 'Error: Email ya registrado';
     ELSE
         SET p_result = 'VALID';
     END IF;
-END $$
+END $$
 
-DELIMITER ;
+DELIMITER ;
