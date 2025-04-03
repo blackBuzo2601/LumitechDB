@@ -9,7 +9,8 @@ CREATE PROCEDURE register_user(
     IN p_user_nickname VARCHAR(15),
     IN p_user_email VARCHAR(100),
     IN p_user_password VARCHAR(100),
-    IN p_token_verification VARCHAR(255)
+    IN p_token_verification VARCHAR(255),
+    IN p_uuid(100)
 )
 BEGIN
 -- campos originales de user
@@ -20,8 +21,8 @@ BEGIN
     -- insertamos los parametros (mismo orden)
     VALUES (
         p_user_name, p_user_last_name, p_user_nickname, p_user_email, 
-        p_user_password, p_token_verification, UUID()
-        -- al final generamos un UUID() al hacer el registro
+        p_user_password, p_token_verification, p_uuid
+      
     );
 END $$
 
