@@ -5,10 +5,10 @@ DELIMITER $$
 -- parametros que va a recibir
 CREATE PROCEDURE register_user(
     IN p_user_name VARCHAR(50),
-    IN p_user_last_name VARCHAR(30),
+    IN p_user_last_name VARCHAR(50),
     IN p_user_nickname VARCHAR(15),
     IN p_user_email VARCHAR(100),
-    IN p_user_password VARCHAR(30),
+    IN p_user_password VARCHAR(100),
     IN p_token_verification VARCHAR(255)
 )
 BEGIN
