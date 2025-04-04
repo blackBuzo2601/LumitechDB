@@ -19,8 +19,8 @@ BEGIN
 
     -- Determinar el resultado
     IF nickname_exists > 0 THEN
-        SET p_result = 'Error: Nickname ya registrado';
-    ELSEIF email_exists > 0 THEN  -- ← Aquí corregí ELSE IF → ELSEIF
+        SET     p_result = 'Error: Nickname ya registrado';
+    ELSEIF email_exists > 0 THEN  
         SET p_result = 'Error: Email ya registrado';
     ELSE
         SET p_result = 'VALID';
