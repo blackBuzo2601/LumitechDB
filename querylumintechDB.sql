@@ -1,19 +1,20 @@
-CREATE DATABASE IF NOT EXISTS lumitech_beta;
-USE lumitech_beta;
+CREATE DATABASE IF NOT EXISTS lumitechDB;
+USE lumitechDB;
 
 
-    CREATE TABLE user (
-        user_id INT PRIMARY KEY AUTO_INCREMENT,
-        user_name VARCHAR(50) NOT NULL,
-        user_last_name VARCHAR(50) NOT NULL,
-        user_nickname  VARCHAR(15) UNIQUE NOT NULL,
-        user_email VARCHAR(100) UNIQUE NOT NULL,
-        user_password VARCHAR(100) NOT NULL,
-        verified TINYINT(1) NOT NULL DEFAULT 0,
-        token_verification VARCHAR(255) NULL
-        uuid CHAR(100) UNIQUE NOT NULL,
-    );
-
+CREATE TABLE user (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(50) NOT NULL,
+    user_last_name VARCHAR(50) NOT NULL,
+    user_nickname  VARCHAR(15) UNIQUE NOT NULL,
+    user_email VARCHAR(100) UNIQUE NOT NULL,
+    user_password VARCHAR(60) NOT NULL,
+    verified TINYINT(1) NOT NULL DEFAULT 0,
+    token_verification VARCHAR(36) NULL,
+    reset_password_token VARCHAR(36) DEFAULT NULL,
+    token_expiration_time DATETIME DEFAULT NULL,
+    uuid CHAR(36) UNIQUE NOT NULL
+);
 
 CREATE TABLE rosette (
     rosette_id INT PRIMARY KEY AUTO_INCREMENT,

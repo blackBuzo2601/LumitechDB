@@ -1,4 +1,4 @@
-USE lumitech_beta;
+USE lumitechDB;
 
 DELIMITER $$
 

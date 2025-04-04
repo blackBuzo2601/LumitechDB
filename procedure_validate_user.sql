@@ -1,11 +1,11 @@
-USE lumitech_beta;
+USE lumitechDB;
 
 DELIMITER $$
 
 CREATE PROCEDURE validate_user(
     IN p_user_nickname VARCHAR(15),
     IN p_user_email VARCHAR(100),
-    OUT p_result VARCHAR(255)
+    OUT p_result VARCHAR(100)
 )
 BEGIN
     DECLARE nickname_exists INT;
@@ -19,8 +19,8 @@ BEGIN
 
     -- Determinar el resultado
     IF nickname_exists > 0 THEN
-        SET     p_result = 'Error: Nickname ya registrado';
-    ELSEIF email_exists > 0 THEN  
+        SET p_result = 'Error: Nickname ya registrado';
+    ELSEIF email_exists > 0 THEN
         SET p_result = 'Error: Email ya registrado';
     ELSE
         SET p_result = 'VALID';
