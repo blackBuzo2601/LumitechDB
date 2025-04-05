@@ -1,3 +1,15 @@
+/*
+VALIDATE_USER
+Este procedure, se utiliza para validar en la PANTALLA DE REGISTRO de usuario que 
+tanto el nickname como el correo proporcionado por el usuario, no existan en
+la BD para poder registrarse. De lo contrario, devuelve un mensaje de que no puede 
+registrarse.
+El backend usa PRIMERO ESTE PROCEDURE, para decidir si el usuario puede registrarse,
+si efectivamente el usuario ni el correo están en uso en la BD, se procede con el
+procedure de REGISTER_USER.
+
+*/
+
 USE lumitechDB;
 
 DELIMITER $$

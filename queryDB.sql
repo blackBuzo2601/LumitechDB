@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS lumitechDB;
 USE lumitechDB;
 
 
-CREATE TABLE user (
+CREATE TABLE user ( 
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(50) NOT NULL,
     user_last_name VARCHAR(50) NOT NULL,
