@@ -1,3 +1,17 @@
+/*
+VERIFY_EMAIL
+Este procedure se usa cuando el usuario desea verificar su cuenta para poder iniciar sesion.
+El parametro p_verification_token corresponde al token que el usuario recibe para poder
+verificar su cuenta.
+El procedure busca en todas las filas de la tabla user en el campo token_verification
+que exista el token ingresado por el usuario. Si no existe, devuelve un error al backend.
+Si encuentra el token ingresado, el campo de verified de user se asigna en 1. Lo que 
+significa que el usuario está verificado y ahora PUEDE INICIAR SESIÓN cuando se use
+el procedure de "validate_session", porque éste ultimo al verificar las credenciales,
+se asegura de que el usuario esté "verificado".
+
+*/
+
 use lumitechDB;
 
 DELIMITER $$
