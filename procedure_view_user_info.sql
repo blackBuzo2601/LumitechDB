@@ -1,3 +1,12 @@
+/*
+VIEW_USER_INFO
+Este procedure recibe como parametro el nickname del usuario del cual vamos a extraer
+la información para mostrarla en el front. La información se guarda en cuatro variables
+de salida de forma que el back pueda obtener esa información en cuatro variables diferentes
+y que pueda consumirlo el front
+
+*/
+
 USE lumitechDB;
 
 DELIMITER $$
