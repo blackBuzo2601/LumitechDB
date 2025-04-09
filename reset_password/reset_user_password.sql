@@ -2,7 +2,7 @@ USE lumitechDB;
 
 DELIMITER $$
 
-CREATE PROCEDURE reset_user_password(IN reset_token VARCHAR(255), IN new_password VARCHAR(255), OUT result_message VARCHAR(255))
+CREATE PROCEDURE reset_user_password(IN reset_token VARCHAR(36), IN new_password VARCHAR(60), OUT result_message VARCHAR(255))
 BEGIN
     DECLARE user_uuid CHAR(36);
     DECLARE token_expiration_time DATETIME;

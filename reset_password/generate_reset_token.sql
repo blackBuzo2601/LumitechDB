@@ -2,7 +2,7 @@ USE lumitechDB;
 
 DELIMITER $$
 
-CREATE PROCEDURE generate_reset_token(IN user_email_input VARCHAR(100), IN reset_token CHAR(36), OUT expiration_time DATETIME)
+CREATE PROCEDURE generate_reset_token(IN user_email_input VARCHAR(100), IN reset_token VARCHAR(36), OUT expiration_time DATETIME)
 BEGIN
   
     DECLARE user_uuid CHAR(36);
