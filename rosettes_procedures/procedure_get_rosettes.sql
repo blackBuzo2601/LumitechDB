@@ -8,6 +8,7 @@ después de mezclar las tablas: rosette_user y rosette, usando el atributo de ro
 de ambas tablas.
 
 */
+USE lumitechDB;
 
 DELIMITER $$
 

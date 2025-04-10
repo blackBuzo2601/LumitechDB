@@ -6,7 +6,6 @@ MAC de la roseta y el UUID del usuario que está registradno esa roseta.
 Al registrar la roseta, en la tabla rosette_user tambine se hace
 la inserción del UUID y de la MAC, reforzando así la seguridad para que solo el usuario
 con el UUID especificado pueda manipular su roseta
-
 */
 
 
