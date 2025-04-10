@@ -17,7 +17,7 @@ USE lumitechDB;
 DELIMITER $$
 
 CREATE PROCEDURE change_user_password(
-    IN p_user_email VARCHAR(100),
+    IN p_uuid CHAR(36),
     IN p_current_password_hashed VARCHAR(60),
     IN p_new_password_hashed VARCHAR(60),
     OUT p_message VARCHAR(50)
@@ -28,14 +28,14 @@ BEGIN
     -- Obtener la contraseña actual de la base de datos
     SELECT user_password INTO stored_password
     FROM user
-    WHERE user_email = p_user_email;
+    WHERE uuid = p_uuid;
 
     -- Verificar si coincide con la contraseña original proporcionada
     IF stored_password = p_current_password_hashed THEN
         -- Si coincide, actualizar a la nueva contraseña
         UPDATE user
         SET user_password = p_new_password_hashed
-        WHERE user_email = p_user_email;
+        WHERE uuid = p_uuid;
 
         SET p_message = 'Contraseña modificada';
     ELSE

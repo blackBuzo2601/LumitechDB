@@ -12,7 +12,7 @@ USE lumitechDB;
 DELIMITER $$
 
 CREATE PROCEDURE view_user_info(
-    IN p_user_email VARCHAR(100),
+    IN p_uuid CHAR(36),
     OUT result_user_name VARCHAR(50),
     OUT result_user_last_name VARCHAR(50),
     OUT result_user_nickname VARCHAR(15),
@@ -30,7 +30,7 @@ BEGIN
         result_user_nickname,
         result_user_email
     FROM user
-    WHERE user_email = p_user_email
+    WHERE uuid = p_uuid
     LIMIT 1;
 END $$
 

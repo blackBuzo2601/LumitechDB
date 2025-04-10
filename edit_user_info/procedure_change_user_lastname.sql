@@ -9,13 +9,13 @@ USE lumitechDB;
 DELIMITER $$
 
 CREATE PROCEDURE change_user_last_name(
-    IN p_user_email VARCHAR(100),
+    IN p_uuid CHAR(36),
     IN p_user_last_name VARCHAR(50)
 )
 BEGIN
     UPDATE user
     SET user_last_name = p_user_last_name
-    WHERE user_email = p_user_email;
+    WHERE uuid = p_uuid;
 END $$
 
 DELIMITER ;
