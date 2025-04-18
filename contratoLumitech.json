@@ -1,0 +1,62 @@
+{
+    
+    "view_user_info": {
+       "result_user_name": "Elian" ,
+         "result_user_last_name": "Buzo" ,
+         "result_user_nickname":"blackbuzossj23" ,
+         "result_user_email": "al20760257@ite.edu.mx" 
+    },
+    "get_rosettes":[
+        {
+            "owner_uuid": "b737e0dd-fc95-407d-a7f4-f2de6b76e0bc",
+            "rosette_mac": "0a:5c:89:18:6a:39",
+            "rosette_ubication":"Cocina",
+            "rosette_register_date":"2025-04-07 14:11:48"
+        },
+        {
+            "owner_uuid": "b737e0dd-fc95-407d-a7f4-f2de6b76e0bc",
+            "rosette_mac": "A2:7C:4B:D9:13:F5",
+            "rosette_ubication":"Baño de abajo",
+            "rosette_register_date":"2025-04-09 14:26:51"
+        }   
+    ],
+    "alertsHistory":[
+        {
+            "rosette_mac": "AA:BB:CC:DD:EE:FF",
+            "rosette_ubication": "Cocina",
+            "alerts_history": [
+              {
+                "alert_date": "2025-04-09 14:26:51",
+                "alert_type": "Critic",
+                "descripcion": "Temperatura superior a 50°C"
+              },
+              {
+                "alert_date": "2025-04-09 14:26:51",
+                "alert_type": "Warning",
+                "descripcion": "Humedad por debajo del 30%"
+              }
+            ]
+          },
+          {
+            "rosette_mac": "0a:5c:89:18:6a:39",
+            "rosette_ubication": "Baño de abajo",
+            "alerts_history": [
+              {
+                "alert_date": "2025-04-09 14:26:51",
+                "alert_type": "Warning",
+                "descripcion": "Humedad por debajo del 30%"
+              },
+              {
+                "alert_date": "2025-04-09 14:26:51",
+                "alert_type": "Critic",
+                "descripcion": "Temperatura superior a 70°C"
+              }
+            ]
+          }
+          
+    ]
+
+
+    
+    
+}
