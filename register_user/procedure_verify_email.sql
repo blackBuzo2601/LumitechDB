@@ -12,14 +12,15 @@ se asegura de que el usuario esté "verificado".
 
 */
 
-use lumitechDB;
+USE lumitechDB;
 
 DELIMITER $$
 
 CREATE PROCEDURE verify_email(
-    IN p_verification_token VARCHAR(36)
+    IN p_verification_token VARCHAR(36),
+    OUT p_message VARCHAR(100)
 )
-    BEGIN
+BEGIN
     DECLARE user_exists INT;
 
     -- Verificar si el token existe y corresponde a un usuario
@@ -27,12 +28,14 @@ CREATE PROCEDURE verify_email(
     FROM user
     WHERE token_verification = p_verification_token;
 
-    -- Si es mayor a 1 (Existe):
+    -- Si es mayor a 0 (Existe):
     IF user_exists > 0 THEN
         -- Actualizar el estado de verificación del usuario
         UPDATE user
         SET verified = 1, token_verification = NULL
         WHERE token_verification = p_verification_token;
+
+        SET p_message = 'Correo verificado con éxito';
     ELSE
         -- Si no se encuentra el token, lanzar un error
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ERROR. Token de verificación inválido';

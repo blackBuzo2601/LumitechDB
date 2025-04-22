@@ -13,9 +13,12 @@ USE lumitechDB;
 DELIMITER $$
 
 CREATE PROCEDURE get_rosettes(
-    IN p_user_uuid CHAR(36)
+    IN p_user_uuid CHAR(36),
+    OUT p_message VARCHAR(100)
 )
 BEGIN
+    DECLARE rosettes_count INT;
+
     SELECT 
         rosette.rosette_mac,
         rosette.rosette_ubication,
@@ -23,7 +26,17 @@ BEGIN
     FROM rosette_user
     INNER JOIN rosette ON rosette_user.rosette_mac = rosette.rosette_mac
     WHERE rosette_user.uuid = p_user_uuid;
+
+    -- Verificar cuántas rosetas hay asociadas
+    SELECT COUNT(*) INTO rosettes_count
+    FROM rosette_user
+    WHERE uuid = p_user_uuid;
+
+    IF rosettes_count > 0 THEN
+        SET p_message = 'Rosetas encontradas exitosamente';
+    ELSE
+        SET p_message = 'No se encontraron rosetas asociadas al usuario';
+    END IF;
 END $$
 
 DELIMITER ;
-    

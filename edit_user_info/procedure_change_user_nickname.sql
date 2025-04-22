@@ -10,12 +10,16 @@ DELIMITER $$
 
 CREATE PROCEDURE change_user_nickname(
     IN p_uuid CHAR(36),
-    IN p_user_nickname VARCHAR(15)
+    IN p_user_nickname VARCHAR(15),
+    OUT p_message VARCHAR(100)
 )
 BEGIN
     UPDATE user
     SET user_nickname = p_user_nickname
     WHERE uuid = p_uuid;
+
+    SET p_message = 'Apodo modificado exitosamente';
 END $$
 
 DELIMITER ;
+
