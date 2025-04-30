@@ -18,8 +18,10 @@ CREATE TABLE user (
 
 CREATE TABLE rosette (
     rosette_id INT PRIMARY KEY AUTO_INCREMENT,
-    rosette_ubication VARCHAR(30) NOT NULL,
+    rosette_ubication VARCHAR(30) NULL,
     rosette_register_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    wifi_ssid VARCHAR(50) NOT NULL,
+    wifi_password VARCHAR(60) NOT NULL,
     rosette_mac VARCHAR(17) UNIQUE NOT NULL,
     owner_uuid CHAR(36) NOT NULL,
     FOREIGN KEY (owner_uuid) REFERENCES user(uuid) ON DELETE CASCADE

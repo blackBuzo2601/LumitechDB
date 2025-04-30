@@ -1,21 +1,11 @@
-/*
-REGISTER_ROSETTE
-Este procedure se encarga de registrar la roseta del usuario, recibiendo como
-parametros el nombre que el usuario quiere asignar a su roseta, la dirección
-MAC de la roseta y el UUID del usuario que está registradno esa roseta.
-Al registrar la roseta, en la tabla rosette_user tambine se hace
-la inserción del UUID y de la MAC, reforzando así la seguridad para que solo el usuario
-con el UUID especificado pueda manipular su roseta
-*/
-
-
 USE lumitechDB;
 
 DELIMITER $$
 
 CREATE PROCEDURE register_rosette(
-    IN p_rosette_ubication VARCHAR(30),
     IN p_rosette_mac VARCHAR(17),
+    IN p_wifi_ssid VARCHAR(50),
+    IN p_wifi_password VARCHAR(60),
     IN p_owner_uuid CHAR(36),
     OUT p_message VARCHAR(100)
 )
@@ -30,17 +20,21 @@ BEGIN
     IF rosette_exists > 0 THEN
         SET p_message = 'Esta roseta ya está registrada';
     ELSE
-        -- Insertar en tabla rosette
+        -- Insertar en tabla rosette con nuevos campos
         INSERT INTO rosette (
             rosette_ubication,
             rosette_register_date,
             rosette_mac,
+            wifi_ssid,
+            wifi_password,
             owner_uuid
         )
         VALUES (
-            p_rosette_ubication,
+            NULL,  -- Si la ubicación no se proporciona, se puede dejar como NULL
             NOW(),
             p_rosette_mac,
+            p_wifi_ssid,
+            p_wifi_password,
             p_owner_uuid
         );
 

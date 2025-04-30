@@ -1,6 +1,18 @@
 /*
 VALIDATE_SESSION
-Hay que documentar este procedure otra vez
+Este procedure se encarga de validar un inicio de sesión de un usuario EXISTENTE.
+El valor introducido desde el front, es un campo que puede ser un NICKNAME o un Email.
+El procedure verifica primero si el valor recibido EXISTE en los registros de la columna
+nickname, si no es así, entonces verifica si el valor recibido EXISTE en los registros
+de la columna email.
+En caso de que el valor no se encuentre en nickname ni email, devuelve un error al backend
+de que el correo o nickname no existen.
+En caso de si encontrar primero el nickname, o el email guarda la contraseña en
+stored_password para compararla con la contraseña que recibe el backend.
+Al final evalúa si las credenciales coinciden. SI COINCIDEN, hace una ultima validación
+que consiste en permitir la sesión SI EL USUARIO ESTÁ VERIFICADO, si el usuario NO ESTÁ 
+VERIFICADO, a pesar de que las credenciales coincidan, no podrá iniciar sesión.
+
 */
 
 USE lumitechDB;
@@ -8,7 +20,7 @@ DELIMITER $$
 
 CREATE PROCEDURE validate_session(
     IN p_user_nickname VARCHAR(100), 
-    OUT p_password_hash VARCHAR(100),
+    OUT p_password_hash VARCHAR(60),
     OUT p_user_verified TINYINT,
     OUT p_result VARCHAR(255)
 )
